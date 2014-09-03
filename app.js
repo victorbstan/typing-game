@@ -1,8 +1,24 @@
+// Requirements:
+//
+//  • Random letters appear in a containing <div> element, 1000px wide, at an interval of 1 second.
+//
+//  • Every 100 milliseconds, all the existing letters move right by 10px.
+//
+//  • Pressing a correct letter removes the oldest instance of that letter, and increases the score by 1 point.
+//
+//  • Pressing a letter that isn't on the page decreases the score by 1 point.
+//
+//  • Pressing Escape ends the game.
+//
+//  • If a letter gets all the way to the right-hand side of the container, the game is over.
+//
+//  • For every 20 letters that have been found, the interval of letter creation decreases by 10%.
+
 var Game = {};
 
 Game.initialize = function(letters, container_el, score_el, spacer_el, spacerWidth, letterWidth, containerWidth) {
   this.currentSpacerWidth = 0;
-  this.spacerWidth = spacerWidth || 1;
+  this.spacerWidth = spacerWidth || 1; // requirements call for 10px, but I found that's way too much for a playable game
   this.letterWidth = letterWidth || 10;
   this.containerWidth = containerWidth || 1000;
   this.$container = container_el;
